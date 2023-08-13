@@ -59,6 +59,7 @@ const ColorPicker: FC<IPropsMain> = ({
   popupWidth = 267,
   colorBoardHeight = 120,
   defaultColors = DEFAULT_COLORS,
+  defaultColorsLimit = 100,
   defaultActiveTab,
   onChangeTabs,
   onChange = () => ({})
@@ -106,6 +107,7 @@ const ColorPicker: FC<IPropsMain> = ({
               value={value}
               format={format}
               defaultColors={defaultColors}
+              defaultColorsLimit={defaultColorsLimit}
               debounceMS={debounceMS}
               debounce={debounce}
               showAlpha={showAlpha}
@@ -119,6 +121,7 @@ const ColorPicker: FC<IPropsMain> = ({
               value={value}
               format={format}
               defaultColors={defaultColors}
+              defaultColorsLimit={defaultColorsLimit}
               debounceMS={debounceMS}
               debounce={debounce}
               showAlpha={showAlpha}
