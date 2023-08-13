@@ -18,7 +18,8 @@ const ColorPickerSolid: FC<IPropsComp> = ({
   showAlpha = true,
   showInputs = true,
   colorBoardHeight = 120,
-  defaultColors
+  defaultColors,
+  defaultColorsLimit
 }) => {
   const node = useRef<HTMLDivElement | null>(null);
 
@@ -82,6 +83,7 @@ const ColorPickerSolid: FC<IPropsComp> = ({
         setColor={setColor}
         setInit={setInit}
         colorType='solid'
+        limit={defaultColorsLimit}
       />
     </div>
   );

@@ -36,7 +36,8 @@ export const getIndexActiveTag = (value: string) => {
 
 export const checkValidColorsArray = (
   arr: string[],
-  type: 'solid' | 'grad'
+  type: 'solid' | 'grad',
+  limit: number
 ) => {
   if (!arr.length || !Array.isArray(arr)) {
     return [];
@@ -56,6 +57,10 @@ export const checkValidColorsArray = (
           return true;
         }
 
+        if (index >= limit) {
+          return false;
+        }
+
         return false;
       });
     case 'grad':
@@ -70,6 +75,10 @@ export const checkValidColorsArray = (
           console.warn(
             'Incorrect gradient default value. You need to indicate the location for the colors. We ignore this gradient value'
           );
+          return false;
+        }
+
+        if (index >= limit) {
           return false;
         }
 

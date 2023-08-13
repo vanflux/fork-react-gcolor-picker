@@ -18,6 +18,7 @@ interface IProps {
   setInit: (init: boolean) => void;
   setActiveColor?: (color: IActiveColor) => void;
   colorType: 'solid' | 'gradient';
+  limit?: number;
 }
 
 const DefaultColorPanel: FC<IProps> = ({
@@ -25,7 +26,8 @@ const DefaultColorPanel: FC<IProps> = ({
   setColor,
   setActiveColor,
   setInit,
-  colorType
+  colorType,
+  limit = 100
 }) => {
   const [active, setActive] = useState<number>(-1);
   const [formatedDefColors, setFormatedDefColors] = useState<
@@ -35,12 +37,12 @@ const DefaultColorPanel: FC<IProps> = ({
   useEffect(() => {
     if (colorType === 'gradient') {
       setFormatedDefColors(
-        checkValidColorsArray(defaultColors, 'grad').map((item: string) => {
+        checkValidColorsArray(defaultColors, 'grad', limit).map((item: string) => {
           return parseGradient(item);
         })
       );
     } else {
-      setFormatedDefColors(checkValidColorsArray(defaultColors, 'solid'));
+      setFormatedDefColors(checkValidColorsArray(defaultColors, 'solid', limit));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

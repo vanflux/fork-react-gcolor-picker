@@ -30,7 +30,8 @@ const Gradient: FC<IPropsComp> = ({
   showGradientAngle = true,
   showGradientPosition = true,
   colorBoardHeight = 120,
-  defaultColors
+  defaultColors,
+  defaultColorsLimit
 }) => {
   const parsedColors = useCallback(() => {
     return parseGradient(value);
@@ -174,6 +175,7 @@ const Gradient: FC<IPropsComp> = ({
         setColor={setColor}
         setActiveColor={setActiveColor}
         setInit={setInit}
+        limit={defaultColorsLimit}
         colorType='gradient'
       />
     </div>
