@@ -56,10 +56,6 @@ export const checkValidColorsArray = (
           return true;
         }
 
-        if (index > 100) {
-          return false;
-        }
-
         return false;
       });
     case 'grad':
@@ -74,10 +70,6 @@ export const checkValidColorsArray = (
           console.warn(
             'Incorrect gradient default value. You need to indicate the location for the colors. We ignore this gradient value'
           );
-          return false;
-        }
-
-        if (index > 100) {
           return false;
         }
 
